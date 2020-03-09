@@ -1,10 +1,6 @@
 # Deb mirror
 
-Setup a simple docker-based (probably very unsecure) debian mirror for a local 
-install fest.
-
-Based on: https://medium.com/@moep_moep/linux-repository-mirror-with-docker-234c9a24e71e
-
+Setup local docker-based debian mirror.
 
 ## Commands
 
@@ -13,10 +9,14 @@ Build with docker:
     $ docker build -t aptmirror:latest .
 
 
-Run this command to fetch files from apt (it will take a loong time):
+Run this command to fetch files from apt, replace local file path with yours:
     
-    $ docker run -v /path-to-local-files/:/mnt/mirror/debian aptmirror:latest
+    $ docker run -v /data/apt-mirror-files/:/mnt/mirror/debian aptmirror:latest
 
 Now serve the files with your webserver of choice:
     
-    $ docker run -p 80:80 -v /path-to-local-files/:/usr/share/nginx/html:ro -d nginx:alpine
+    $ docker run -p 80:80 -v /data/apt-mirror-files/:/usr/share/nginx/html:ro -d nginx:alpine
+    
+## Edit Client to Use Mirror
+Backup /etc/apt/sources.list
+Modify /etc/apt/sources.list to local ip address where mirror is hosted

@@ -13,17 +13,6 @@ set nthreads     20
 set _tilde 0
 #
 ############# end config ##############
-## Debian Stretch
-# BASE
-deb-amd64 http://ftp2.de.debian.org/debian/ stretch main
-deb-amd64 http://security.debian.org/debian-security stretch/updates main  contrib non-free
-deb-amd64 http://ftp2.de.debian.org/debian/ stretch-updates main
-## Debian Jessie
-# BASE
-#deb-amd64 http://ftp2.de.debian.org/debian/ jessie main
-#deb-amd64 http://security.debian.org/debian-security jessie/updates main
-#deb-amd64 http://ftp2.de.debian.org/debian/ jessie-updates main
-
 ## Ubuntu 16.04
 # BASE
 #deb http://archive.ubuntu.com/ubuntu/ xenial main restricted
@@ -36,6 +25,22 @@ deb-amd64 http://ftp2.de.debian.org/debian/ stretch-updates main
 #deb http://security.ubuntu.com/ubuntu/ xenial-security main restricted
 #deb http://security.ubuntu.com/ubuntu/ xenial-security universe
 #deb http://security.ubuntu.com/ubuntu/ xenial-security multiverse
+
+## Ubuntu 18
+deb http://archive.ubuntu.com/ubuntu bionic main multiverse
+deb http://archive.ubuntu.com/ubuntu bionic universe
+deb http://archive.canonical.com/ubuntu bionic partner
+
+## Nvidia
+deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /
+deb https://nvidia.github.io/libnvidia-container/ubuntu18.04/$(ARCH) /
+deb https://nvidia.github.io/nvidia-container-runtime/ubuntu18.04/$(ARCH) /
+deb https://nvidia.github.io/nvidia-docker/ubuntu18.04/$(ARCH) /
+
+## Postgres
+deb http://apt.postgresql.org/pub/repos/apt/ bionic-pgdg main
+
+deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
 
 # Cleanup old packages
 #clean http://ftp2.de.debian.org/debian
