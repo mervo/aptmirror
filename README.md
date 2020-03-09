@@ -20,3 +20,4 @@ Now serve the files with your webserver of choice:
 ## Edit Client to Use Mirror
 Backup /etc/apt/sources.list
 Modify /etc/apt/sources.list to local ip address where mirror is hosted
+sudo apt-get update --allow-insecure-repositories
